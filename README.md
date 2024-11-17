@@ -13,6 +13,18 @@ The Scriptor Command Framework is a Java-based library designed to facilitate th
 - **Suggestions**: Provide auto-completion suggestions for command arguments.
 - **Redirection and Forking**: Support for command redirection and forking to handle complex command flows.
 
+## Installation
+
+To use Scriptor in your project, add the following Gradle dependency:
+
+```groovy
+
+	dependencies {
+	        implementation 'com.github.Night-Fall-Studio:Scriptor:1.0'
+	}
+	
+```
+
 ## Components
 
 ### CommandDispatcher

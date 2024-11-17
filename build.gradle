@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.nightfall.scriptor'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 repositories {
     maven {
@@ -34,4 +34,16 @@ sourceSets {
 
 dependencies {
     testImplementation 'junit:junit-dep:4.11'
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = group
+            artifactId = "scriptor"
+
+            artifact source: jar, extension: 'jar'
+        }
+    }
 }
