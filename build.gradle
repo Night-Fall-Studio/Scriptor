@@ -45,8 +45,8 @@ publishing {
         maven(MavenPublication) {
             groupId = group
             artifactId = "scriptor"
-
             artifact source: jar, extension: 'jar'
+            artifact source: buildSourceJar, classifier: 'source', extension: 'jar'
         }
     }
 }
