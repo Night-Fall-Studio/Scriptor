@@ -1,0 +1,37 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'com.github.nightfall.scriptor'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url = uri('https://jitpack.io')
+    }
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit-dep:4.11'
+}
