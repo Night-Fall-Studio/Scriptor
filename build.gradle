@@ -36,6 +36,9 @@ dependencies {
     testImplementation 'junit:junit-dep:4.11'
 }
 
+tasks.register("buildSourceJar", Jar) {
+    from sourceSets.main.allSource
+}
 
 publishing {
     publications {
