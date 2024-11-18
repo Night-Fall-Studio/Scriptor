@@ -147,7 +147,7 @@ public class CommandDispatcher<S> {
      * @return the {@link LiteralCommandNode} that was added to the command tree
      * @throws IllegalArgumentException if the provided command is null
      */
-    public LiteralCommandNode<S> register(final LiteralArgumentCrafter<Object> command) {
+    public LiteralCommandNode<S> register(final LiteralArgumentCrafter<S> command) {
         if (command == null) {
             throw new IllegalArgumentException("Command cannot be null");
         }
@@ -677,7 +677,7 @@ public class CommandDispatcher<S> {
             // Handle children nodes
             final Collection<CommandNode<S>> children = node.getChildren().stream()
                     .filter(c -> c.canUse(source)) // Only include children that can be used by the source
-                    .collect(Collectors.toList());
+                    .toList();
 
             // If there is exactly one usable child node, recursively get its usage
             if (children.size() == 1) {
