@@ -53,7 +53,7 @@ public class CommandSyntaxException extends Exception {
      * @param message the detailed error message
      */
     public CommandSyntaxException(final CommandExceptionType type, final Message message) {
-        super(message.string(), null, ENABLE_COMMAND_STACK_TRACES, ENABLE_COMMAND_STACK_TRACES);
+        super(null, null, ENABLE_COMMAND_STACK_TRACES, ENABLE_COMMAND_STACK_TRACES);
         this.type = type;
         this.message = message;
         this.input = null;
@@ -69,7 +69,7 @@ public class CommandSyntaxException extends Exception {
      * @param cursor  the position in the input where the error occurred
      */
     public CommandSyntaxException(final CommandExceptionType type, final Message message, final String input, final int cursor) {
-        super(message.string(), null, ENABLE_COMMAND_STACK_TRACES, ENABLE_COMMAND_STACK_TRACES);
+        super(null, null, ENABLE_COMMAND_STACK_TRACES, ENABLE_COMMAND_STACK_TRACES);
         this.type = type;
         this.message = message;
         this.input = input;
@@ -127,7 +127,7 @@ public class CommandSyntaxException extends Exception {
 
         // Append the surrounding characters from the input
         contextBuilder.append(input, start, adjustedCursor);
-        contextBuilder.append("<--[HERE] Nice try! ");
+        contextBuilder.append("<--[HERE]");
 
         return contextBuilder.toString();
     }
