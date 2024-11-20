@@ -918,4 +918,45 @@ public class CommandDispatcher<S> {
             addPaths(child, result, current);  // Recursive call for the child node
         }
     }
+
+    /**
+     * Gets all possible paths of command nodes starting from the root node.
+     *
+     * <p>This method returns a list of paths, where each path is a list of command nodes.
+     * Each path represents a chain of command nodes starting from the root node and traversing
+     * through the children of each node. The paths are constructed by recursively adding child nodes
+     * to the current path, starting from the root node.</p>
+     *
+     * <p>Each path in the result list is a list of command nodes, where the first node is the root node
+     * and the last node is a leaf node. The paths are constructed by traversing the children of each node
+     * and adding them to the current path.</p>
+     *
+     * @return A list of paths, where each path is a list of command nodes.
+     */
+    public List<List<CommandNode<S>>> getAllPaths() {
+        final List<List<CommandNode<S>>> result = new ArrayList<>();
+        addPaths(root, result, Collections.emptyList());
+        return result;
+    }
+
+    /**
+     * Gets all possible paths of command nodes starting from the specified node.
+     *
+     * <p>This method returns a list of paths, where each path is a list of command nodes.
+     * Each path represents a chain of command nodes starting from the specified node and traversing
+     * through the children of each node. The paths are constructed by recursively adding child nodes
+     * to the current path, starting from the specified node.</p>
+     *
+     * <p>Each path in the result list is a list of command nodes, where the first node is the specified node
+     * and the last node is a leaf node. The paths are constructed by traversing the children of each node
+     * and adding them to the current path.</p>
+     *
+     * @param node The node to start constructing paths from.
+     * @return A list of paths, where each path is a list of command nodes.
+     */
+    public List<List<CommandNode<S>>> getAllPaths(final CommandNode<S> node) {
+        final List<List<CommandNode<S>>> result = new ArrayList<>();
+        addPaths(node, result, Collections.emptyList());
+        return result;
+    }
 }
