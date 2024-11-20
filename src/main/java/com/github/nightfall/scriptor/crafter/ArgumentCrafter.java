@@ -147,7 +147,6 @@ public abstract class ArgumentCrafter<S, T extends ArgumentCrafter<S, T>> {
     /**
      * A predicate that requires nothing to be satisfied.
      *
-     * @param <S> the type of the command context
      * @return a predicate that always returns {@code true}
      * @since 1.3
      */
