@@ -24,6 +24,7 @@ import com.github.nightfall.scriptor.tree.RootCommandNode;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -41,6 +42,15 @@ public abstract class ArgumentCrafter<S, T extends ArgumentCrafter<S, T>> {
     /** The root node that contains the arguments in the command structure. */
     private final RootCommandNode<S> arguments = new RootCommandNode<>();
 
+    /**
+     * Creates a new {@code ArgumentCrafter} instance.
+     *
+     * @since 1.3
+     */
+    @SuppressWarnings("unchecked")
+    public static <S> Predicate<S> requireNothing() {
+        return (Predicate<S>) RequireNothing.INSTANCE;
+    }
     /** The command to execute for this argument. */
     private Command<S> command;
 
@@ -130,8 +140,24 @@ public abstract class ArgumentCrafter<S, T extends ArgumentCrafter<S, T>> {
      * @return the current {@code ArgumentCrafter} instance for method chaining
      */
     public T requires(final Predicate<S> requirement) {
-        this.requirement = requirement;
+        this.requirement = Objects.requireNonNull(requirement, "requirement");
         return getThis();
+    }
+
+    /**
+     * A predicate that requires nothing to be satisfied.
+     *
+     * @param <S> the type of the command context
+     * @return a predicate that always returns {@code true}
+     * @since 1.3
+     */
+    private static final class RequireNothing implements Predicate<Object> {
+        private static final RequireNothing INSTANCE = new RequireNothing();
+
+        @Override
+        public boolean test(Object o) {
+            return true;
+        }
     }
 
     /**
