@@ -932,6 +932,7 @@ public class CommandDispatcher<S> {
      * and adding them to the current path.</p>
      *
      * @return A list of paths, where each path is a list of command nodes.
+     * @since 1.3
      */
     public List<List<CommandNode<S>>> getAllPaths() {
         final List<List<CommandNode<S>>> result = new ArrayList<>();
@@ -953,6 +954,7 @@ public class CommandDispatcher<S> {
      *
      * @param node The node to start constructing paths from.
      * @return A list of paths, where each path is a list of command nodes.
+     * @since 1.3
      */
     public List<List<CommandNode<S>>> getAllPaths(final CommandNode<S> node) {
         final List<List<CommandNode<S>>> result = new ArrayList<>();
