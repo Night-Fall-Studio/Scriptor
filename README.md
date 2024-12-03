@@ -20,7 +20,7 @@ To use Scriptor in your project, add the following Gradle dependency:
 ```groovy
 
 	dependencies {
-	        implementation 'com.github.Night-Fall-Studio:Scriptor:1.0'
+	        implementation 'com.github.Night-Fall-Studio:Scriptor:1.2'
 	}
 	
 ```
