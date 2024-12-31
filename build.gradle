@@ -3,48 +3,26 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.nightfall.scriptor'
+group = 'com.github.nightfall'
 version = '1.3'
 
 repositories {
-    maven {
-        url = uri('https://jitpack.io')
-    }
     mavenCentral()
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-        resources {
-            srcDirs = ['src/main/resources']
-        }
-    }
-    test {
-        java {
-            srcDirs = ['src/test/java']
-        }
-        resources {
-            srcDirs = ['src/test/resources']
-        }
-    }
-}
-
 dependencies {
-    testImplementation 'junit:junit-dep:4.11'
 }
 
-tasks.register("buildSourceJar", Jar) {
-    from sourceSets.main.allSource
-}
+//tasks.register("buildSourceJar", Jar) {
+//    from sourceSets.main.allSource
+//}
 
 publishing {
     publications {
         maven(MavenPublication) {
             groupId = group
             artifactId = "scriptor"
+
             artifact source: jar, extension: 'jar'
         }
     }
