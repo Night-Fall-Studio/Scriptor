@@ -15,6 +15,7 @@ dependencies {
 
 tasks.register("buildSourceJar", Jar) {
     from sourceSets.main.allSource
+    archiveClassifier = "source"
 }
 
 publishing {
