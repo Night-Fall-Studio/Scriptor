@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.github.nightfall'
-version = '1.3'
+version = '1.2'
 
 repositories {
     mavenCentral()
@@ -13,9 +13,9 @@ repositories {
 dependencies {
 }
 
-//tasks.register("buildSourceJar", Jar) {
-//    from sourceSets.main.allSource
-//}
+tasks.register("buildSourceJar", Jar) {
+    from sourceSets.main.allSource
+}
 
 publishing {
     publications {
@@ -24,6 +24,7 @@ publishing {
             artifactId = "scriptor"
 
             artifact source: jar, extension: 'jar'
+            artifact source: buildSourceJar, classifier: 'source', extension: 'jar'
         }
     }
 }
