@@ -13,11 +13,6 @@ repositories {
 dependencies {
 }
 
-tasks.register("buildSourceJar", Jar) {
-    from sourceSets.main.allSource
-    archiveClassifier = "source"
-}
-
 publishing {
     publications {
         maven(MavenPublication) {
@@ -25,7 +20,6 @@ publishing {
             artifactId = "scriptor"
 
             artifact source: jar, extension: 'jar'
-            artifact source: buildSourceJar, classifier: 'source', extension: 'jar'
         }
     }
 }
